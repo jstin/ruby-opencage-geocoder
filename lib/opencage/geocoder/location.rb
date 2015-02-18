@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'cgi'
 require 'json'
 
 module OpenCage
@@ -53,7 +54,7 @@ module OpenCage
         if @lat && @lng && !@name
           "#{lat},#{lng}"
         elsif @name
-          URI::encode(@name)
+          CGI::escape(@name)
         end
       end
 
